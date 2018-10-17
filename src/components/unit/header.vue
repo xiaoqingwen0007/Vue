@@ -13,14 +13,6 @@ export default{
 		}
 	},
 	props:['message'],
-	//在模板渲染成html或者模板编译进路由前调用的方法
-	created:function(){
-		
-	},
-	//需要使用的方法
-	methods:{
-		
-	}
 }
 </script>
 

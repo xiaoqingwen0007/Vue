@@ -15,7 +15,7 @@
 import Header from '@/components/unit/Header'
 import Footer from '@/components/unit/Footer'
 export default {
-	name:'FirstPage',
+	name:'SecPage',
 	data(){
 		return {
 			button_text:"do"
