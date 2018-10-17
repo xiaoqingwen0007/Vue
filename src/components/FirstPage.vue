@@ -12,8 +12,7 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import Header from '@/components/unit/Header'	//引入footer组件
+import Header from '@/components/unit/Header'	//引入footer
 import Footer from '@/components/unit/Footer'	//引入header组件
 export default {
 	name:'FirstPage',
@@ -30,7 +29,7 @@ export default {
 	//在模板渲染成html或者模板编译进路由前调用的方法
 	created:function(){
 		this.Request({
-			url:"example/example",
+			url:"example/example",			//修改成自己的地址
 	      	data:{},
 	      	success:function(data){
 	        	console.log('界面加载时获取数据',data)

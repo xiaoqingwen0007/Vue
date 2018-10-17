@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import Vue from 'vue'
 import Header from '@/components/unit/Header'
 import Footer from '@/components/unit/Footer'
 export default {
@@ -29,13 +28,7 @@ export default {
 	},
 	//在模板渲染成html或者模板编译进路由前调用的方法
 	created:function(){
-		this.Request({
-			url:"example/example",
-	      	data:{},
-	      	success:function(data){
-	        	console.log('界面加载时获取数据',data)
-	      	}
-		})
+		
 	},
 	//需要使用的方法
 	methods:{
