@@ -38,6 +38,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 unit文件夹下面公共组件有（Footer.vue,Header.vue）
 
 在FirstPage.vue中
+```
 <script>
 export default {
 	name:'FirstPage',       //导出该模块文件
@@ -48,9 +49,9 @@ export default {
 	}
 }
 </script>
-
+```
 在路由文件中/src/router/index.js
-
+```
 import Vue from 'vue'
 import Router from 'vue-router'
 import FirstPage from '@/components/FirstPage'    //引入FirstPage
@@ -81,12 +82,12 @@ export default new Router({
     }
   ]
 })
-
+```
 2.页面中引入其他组件
 
 例：引入footer模块
 Footer.vue文件
-
+```
 <template>
 	<div class="footer">
 		{{msg}}
@@ -103,12 +104,15 @@ export default {
 	}
 }
 </script>
+```
 想要在FirstPage.vue中引入Footer首先要引入模块
 import Footer from '@/components/unit/Header'	
 然后再components中注册该组件
+```
 components:{
 		Footer
 },
+```
 这些做完之后就可以使用<Footer></Footer>引用Footer.vue里面的内容了
 
 3.父组件向子组件传值
@@ -116,6 +120,7 @@ components:{
 在FirstPage.vue里面引入了<Header message="这是第一个页面"></Header>
 【message="这是第一个页面"】用于向Header.vue入一个message值为‘这是第一个页面’
 在Header中可以看到（利用props获取父组件传来的props）
+```
 <template>
 	<div class="header">
 		{{msg}}，从父组件中得到的数据：“{{message}}”    //将父组件传来的message显示在页面上
@@ -133,30 +138,32 @@ export default{
 	props:['message'],                //获取到父组件传来的message
 }
 </script>
-
+```
 4.resource数据请求
 
 首先要安装vue-resource
 npm install vue-resource
 封装方法（Request）/src/assets/js/HttpRequest.js
 在/src/main.js中
-
+```
 import VueResource from 'vue-resource'    //加载vue-resource模块
 
 import HttpRequest from './assets/js/HttpRequest'   //引入全局变量,调用封装方法
 Vue.config.productionTip = false
 Vue.use(VueResource)                  //使用模块
 Vue.use(HttpRequest)                  //使用模块
-
+```
 在FirstPage.vue中可以看到调用该方法
-//注册组件（需要调用到的组件）
-//注册组件（需要调用到的组件）
+```
+import Header from '@/components/unit/Header'	//引入footer
+import Footer from '@/components/unit/Footer'	//引入header组件
 components:{
   Header,
   Footer
 },
 //在模板渲染成html或者模板编译进路由前调用的方法
 created:function(){
+	//调用Request
   this.Request({
     url:"example/example",
     data:{},
@@ -171,3 +178,4 @@ methods:{
     alert("do some thing!")
   }
 }
+```
